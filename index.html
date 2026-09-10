@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Оборот — магазин виниловых пластинок</title>
+<meta name="description" content="Виниловые пластинки с честной оценкой состояния. Русский и классический рок, джаз, классика, саундтреки. Проигрыватели, уход, доставка по России.">
+<meta property="og:title" content="Оборот — магазин виниловых пластинок">
+<meta property="og:description" content="Каждая пластинка отгрейдована по стандарту Goldmine. Подберём первую — или закроем дырку в коллекции.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%230b0b0e'/><circle cx='50' cy='50' r='30' fill='none' stroke='%23444' stroke-width='2'/><circle cx='50' cy='50' r='38' fill='none' stroke='%23333' stroke-width='2'/><circle cx='50' cy='50' r='14' fill='%23e8b93a'/><circle cx='50' cy='50' r='3' fill='%230b0b0e'/></svg>">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="topline">
+  <div class="wrap topline__in">
+    <span class="topline__item"><b>Бесплатная доставка</b> от 3 000 ₽</span>
+    <span class="topline__sep">·</span>
+    <span class="topline__item">Слушаем и оцениваем каждую пластинку до отправки</span>
+    <span class="topline__sep">·</span>
+    <span class="topline__item">Обмен 14 дней, если состояние не совпало</span>
+  </div>
+</div>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hdr__in">
+    <a class="logo" href="#top" aria-label="Оборот — на главную">
+      <span class="logo__disc" aria-hidden="true"><i></i></span>
+      <span class="logo__txt">ОБОРОТ</span>
+    </a>
+
+    <nav class="nav" aria-label="Основное меню">
+      <a href="#catalog">Каталог</a>
+      <a href="#mood">Подбор</a>
+      <a href="#bundles">Наборы</a>
+      <a href="#gear">Техника и уход</a>
+      <a href="#grading">Состояние</a>
+      <a href="#how">Доставка</a>
+    </nav>
+
+    <div class="hdr__tools">
+      <label class="search" title="Поиск по каталогу">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>
+        <input id="q" type="search" placeholder="Исполнитель, альбом" aria-label="Поиск по каталогу" autocomplete="off">
+      </label>
+      <button class="icon-btn" id="shelfBtn" aria-label="Моя полка">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-9.3A4.1 4.1 0 0 1 12 8a4.1 4.1 0 0 1 7 2.7C19 15.6 12 20 12 20z"/></svg>
+        <span class="badge" id="shelfCount">0</span>
+      </button>
+      <button class="icon-btn icon-btn--cart" id="cartBtn" aria-label="Корзина">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.2 10.2a2 2 0 0 0 2 1.6h6.6a2 2 0 0 0 2-1.5L21 9H7"/><circle cx="10.5" cy="20" r="1.3"/><circle cx="17.5" cy="20" r="1.3"/></svg>
+        <span class="badge" id="cartCount">0</span>
+      </button>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===================== ГЛАВНЫЙ ЭКРАН ===================== -->
+<section class="hero">
+  <div class="wrap hero__in">
+    <div class="hero__text">
+      <p class="eyebrow">Магазин винила · доставка по России</p>
+      <h1>Пластинка, которую вы <em>правда</em> поставите</h1>
+      <p class="lead">
+        Не склад из сорока тысяч позиций, где невозможно выбрать. Пятьдесят пластинок,
+        каждую из которых мы прослушали и честно оценили — отдельно диск, отдельно конверт.
+        Вы видите, что покупаете, ещё до того, как нажали «в корзину».
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#catalog">Смотреть каталог</a>
+        <a class="btn btn--ghost" href="#mood">Подобрать по настроению</a>
+      </div>
+      <ul class="hero__facts">
+        <li><b id="factCount">50</b><span>пластинок в наличии</span></li>
+        <li><b>9</b><span>позиций в одном экземпляре</span></li>
+        <li><b>14 дней</b><span>на обмен по состоянию</span></li>
+      </ul>
+    </div>
+
+    <div class="hero__deck">
+      <div class="deck" id="deck">
+        <div class="deck__platter">
+          <div class="deck__disc" id="deckDisc"></div>
+          <div class="deck__sleeve" id="deckSleeve" aria-hidden="true"></div>
+        </div>
+        <div class="deck__arm" id="deckArm"><span></span></div>
+        <div class="deck__panel">
+          <div class="deck__now">
+            <span class="deck__label">Сейчас на вертушке</span>
+            <strong id="deckTitle">Кино — Звезда по имени Солнце</strong>
+          </div>
+          <button class="deck__play" id="deckPlay" aria-pressed="true">
+            <span class="deck__playdot"></span><span id="deckPlayTxt">Стоп</span>
+          </button>
+        </div>
+      </div>
+      <p class="deck__hint">Нажмите «На вертушку» в любой карточке — пластинка окажется здесь</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ОБЕЩАНИЯ ===================== -->
+<section class="promise">
+  <div class="wrap promise__grid">
+    <article><span class="promise__n">01</span><h3>Честная оценка</h3><p>Стандарт Goldmine, диск и конверт — раздельно. Если на конверте потёрт угол, мы пишем об этом, а не прячем за словом «отличное».</p></article>
+    <article><span class="promise__n">02</span><h3>Слушаем перед отправкой</h3><p>Б/у пластинки проигрываются целиком. Позиция уходит в продажу только после чистки на вакуумной машине.</p></article>
+    <article><span class="promise__n">03</span><h3>Упаковка как для стекла</h3><p>Пластинка вынимается из конверта, оба едут в мейлере с двойным уплотнителем. За три года — ни одной сломанной посылки.</p></article>
+    <article><span class="promise__n">04</span><h3>Обмен без спора</h3><p>Не совпало с описанием — меняем или возвращаем деньги. 14 дней, без «экспертизы» и переписки на неделю.</p></article>
+  </div>
+</section>
+
+<!-- ===================== ПОДБОР ПО НАСТРОЕНИЮ ===================== -->
+<section class="mood" id="mood">
+  <div class="wrap">
+    <header class="sect-head">
+      <div>
+        <p class="eyebrow">Три вопроса</p>
+        <h2>Что поставить сегодня?</h2>
+      </div>
+      <p class="sect-head__note">Для тех, кто не знает, с чего начать — и для тех, кто выбирает подарок, не зная вкусов.</p>
+    </header>
+
+    <div class="quiz" id="quiz">
+      <div class="quiz__steps" id="quizSteps"></div>
+      <div class="quiz__result" id="quizResult" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== КАТАЛОГ ===================== -->
+<section class="catalog" id="catalog">
+  <div class="wrap">
+    <header class="sect-head">
+      <div>
+        <p class="eyebrow">Каталог</p>
+        <h2>Пластинки</h2>
+      </div>
+      <div class="sort">
+        <label for="sort">Сортировка</label>
+        <select id="sort">
+          <option value="pop">Сначала популярные</option>
+          <option value="cheap">Сначала дешёвые</option>
+          <option value="rich">Сначала дорогие</option>
+          <option value="new">Сначала новые издания</option>
+          <option value="az">По алфавиту</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="cat-layout">
+      <aside class="filters" id="filters" aria-label="Фильтры каталога">
+        <div class="filters__head">
+          <button class="filters__toggle" id="filtersToggle" aria-expanded="false" aria-controls="filtersBody">
+            <span>Фильтры</span><b class="filters__badge" id="filtersBadge" hidden>0</b><i class="filters__chev" aria-hidden="true"></i>
+          </button>
+          <button class="link-btn" id="resetFilters">Сбросить</button>
+        </div>
+        <div class="filters__body" id="filtersBody">
+
+        <fieldset class="f-block">
+          <legend>Жанр</legend>
+          <div class="chips" id="fGenre"></div>
+        </fieldset>
+
+        <fieldset class="f-block">
+          <legend>Цена, ₽</legend>
+          <div class="range">
+            <output id="priceOut">до 15 000</output>
+            <input type="range" id="fPrice" min="3000" max="15000" step="500" value="15000">
+          </div>
+        </fieldset>
+
+        <fieldset class="f-block">
+          <legend>Состояние диска <button class="hint-btn" data-goto="#grading" title="Что это значит?">?</button></legend>
+          <div class="chips" id="fGrade"></div>
+        </fieldset>
+
+        <fieldset class="f-block">
+          <legend>Особенности</legend>
+          <div class="chips" id="fFeat"></div>
+        </fieldset>
+
+        <p class="filters__count" id="filtersCount"></p>
+        </div>
+      </aside>
+
+      <div class="cat-main">
+        <div class="active-filters" id="activeFilters"></div>
+        <div class="grid" id="grid"></div>
+        <p class="empty" id="empty" hidden>По этим условиям ничего не нашлось. Попробуйте снять пару фильтров — или загляните в <a href="#mystery">«Кота в мешке»</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== НАБОРЫ ===================== -->
+<section class="bundles" id="bundles">
+  <div class="wrap">
+    <header class="sect-head">
+      <div><p class="eyebrow">Готовые решения</p><h2>Наборы</h2></div>
+      <p class="sect-head__note">Средний чек в винильной рознице выше цены одной пластинки: люди берут сразу то, без чего она не играет.</p>
+    </header>
+    <div class="bundle-grid" id="bundleGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== ГИД ПО СОСТОЯНИЮ ===================== -->
+<section class="grading" id="grading">
+  <div class="wrap">
+    <header class="sect-head">
+      <div><p class="eyebrow">Главный вопрос при покупке онлайн</p><h2>Что значит VG+ и почему это важно</h2></div>
+      <p class="sect-head__note">Единственное, что нельзя проверить через экран, — состояние. Поэтому мы объясняем свою шкалу, а не прячем её в примечаниях.</p>
+    </header>
+
+    <div class="grade-tool">
+      <div class="grade-tool__scale" id="gradeScale" role="tablist" aria-label="Шкала состояния"></div>
+      <div class="grade-tool__body">
+        <div class="grade-tool__vis" id="gradeVis"></div>
+        <div class="grade-tool__text">
+          <h3 id="gradeTitle"></h3>
+          <p id="gradeNote"></p>
+          <p class="grade-tool__who" id="gradeWho"></p>
+          <button class="btn btn--ghost btn--sm" id="gradeApply">Показать такие пластинки</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="firstlp">
+      <h3>Покупаете первую пластинку?</h3>
+      <ol class="firstlp__steps">
+        <li><b>Сначала техника.</b> Пластинка не играет сама по себе. Нужен проигрыватель со встроенным фонокорректором и активные колонки — либо всё это в одном корпусе.</li>
+        <li><b>Берите новое, а не б/у.</b> Первая пластинка должна звучать так, как задумано. Ищите отметку <span class="pill pill--m">M</span> — запечатано.</li>
+        <li><b>Сразу купите щётку.</b> 1 490 ₽ — и пластинка проживёт тридцать лет вместо трёх. Пыль в канавке звучит громче, чем кажется.</li>
+        <li><b>Не кладите стопкой.</b> Только вертикально и без наклона, иначе покоробится. Стойка нужна с первой же десятки.</li>
+      </ol>
+      <div class="firstlp__cta">
+        <button class="btn btn--primary" data-filter-entry="1">Пластинки, с которых стоит начать</button>
+        <a class="btn btn--ghost" href="#bundles">Стартовый набор целиком</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ТЕХНИКА И УХОД ===================== -->
+<section class="gear" id="gear">
+  <div class="wrap">
+    <header class="sect-head">
+      <div><p class="eyebrow">Без этого не играет</p><h2>Техника и уход</h2></div>
+      <p class="sect-head__note">Проигрыватель — это половина звука. Щётка и конверты — это то, доживёт ли коллекция до ваших детей.</p>
+    </header>
+    <div class="gear-grid" id="gearGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== КОТ В МЕШКЕ ===================== -->
+<section class="mystery" id="mystery">
+  <div class="wrap mystery__in">
+    <div class="mystery__text">
+      <p class="eyebrow">Механика вторичного рынка, но без риска</p>
+      <h2>Кот в мешке</h2>
+      <p>Выбираете жанр и потолок цены — мы выбираем пластинку. Со скидкой 15% и правом обменять,
+        если совсем не зашло. Так собирают коллекцию на барахолках, только тут за вас уже проверили состояние.</p>
+      <div class="mystery__controls">
+        <select id="mysteryGenre" aria-label="Жанр для кота в мешке"></select>
+        <select id="mysteryBudget" aria-label="Бюджет">
+          <option value="4000">до 4 000 ₽</option>
+          <option value="6000" selected>до 6 000 ₽</option>
+          <option value="9000">до 9 000 ₽</option>
+          <option value="99000">без ограничений</option>
+        </select>
+        <button class="btn btn--primary" id="mysteryGo">Вытащить пластинку</button>
+      </div>
+    </div>
+    <div class="mystery__box" id="mysteryBox">
+      <div class="mystery__placeholder">
+        <span class="mystery__q">?</span>
+        <p>Здесь появится ваша пластинка</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ДОСТАВКА И ВОПРОСЫ ===================== -->
+<section class="how" id="how">
+  <div class="wrap">
+    <header class="sect-head"><div><p class="eyebrow">Как это работает</p><h2>Доставка, оплата, вопросы</h2></div></header>
+    <div class="how__grid">
+      <div class="how__cards">
+        <article><h3>СДЭК до пункта выдачи</h3><p><b>от 290 ₽</b> · 2–5 дней<br>Бесплатно при заказе от 3 000 ₽</p></article>
+        <article><h3>Курьером до двери</h3><p><b>от 490 ₽</b> · Москва и Петербург — на следующий день</p></article>
+        <article><h3>Почтой России</h3><p><b>от 350 ₽</b> · Куда угодно, где есть отделение. Упаковка та же, усиленная</p></article>
+        <article><h3>Самовывоз</h3><p><b>Бесплатно</b> · Можно послушать на месте перед покупкой</p></article>
+      </div>
+      <div class="faq" id="faq">
+        <details><summary>Пластинка новая или б/у — как понять?</summary><p>В карточке всегда две оценки: диска и конверта. <b>M</b> — запечатанное новое издание. Всё остальное — б/у, и тогда мы пишем, что именно слышно и видно. Позиции с отметкой «Последний экземпляр» — единичные, повтора не будет.</p></details>
+        <details><summary>Что если пластинка приедет с браком?</summary><p>Снимаете распаковку — и пишете нам. Меняем на такую же или возвращаем деньги вместе со стоимостью доставки. Спорить о том, «кто поцарапал», мы не будем: винил — товар, который либо звучит, либо нет.</p></details>
+        <details><summary>Подойдёт ли пластинка к моему проигрывателю?</summary><p>Любая пластинка на 33⅓ оборота играет на любом современном проигрывателе. Единственное, на что смотреть, — синглы на 45 оборотов (у нас таких нет) и вес: 180 г требует чуть более жёсткого мата, но играет везде.</p></details>
+        <details><summary>Почему одно и то же издание стоит по-разному?</summary><p>Пресс, год, страна и состояние. Немецкий пресс 2016 года и советская «Мелодия» 1986-го — это две разные пластинки, даже если музыка одна. В карточке всегда указано, какой именно экземпляр вы берёте.</p></details>
+        <details><summary>Можно ли зарезервировать раритет?</summary><p>Да, на 48 часов. Напишите нам id позиции из карточки — снимем с витрины и придержим.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap ftr__in">
+    <div class="ftr__brand">
+      <span class="logo__disc" aria-hidden="true"><i></i></span>
+      <div>
+        <b>ОБОРОТ</b>
+        <p>Магазин виниловых пластинок. Честная оценка состояния, реальные тиражи, живые люди на связи.</p>
+      </div>
+    </div>
+    <nav class="ftr__nav" aria-label="Меню в подвале">
+      <div><h4>Каталог</h4><a href="#catalog">Все пластинки</a><a href="#gear">Техника и уход</a><a href="#bundles">Наборы</a><a href="#mystery">Кот в мешке</a></div>
+      <div><h4>Покупателю</h4><a href="#grading">Шкала состояния</a><a href="#how">Доставка и оплата</a><a href="#how">Обмен и возврат</a><a href="#mood">Подбор по настроению</a></div>
+      <div><h4>Связь</h4><a href="#top">Телеграм магазина</a><a href="#top">Почта</a><a href="#top">Самовывоз в Москве</a></div>
+    </nav>
+  </div>
+  <div class="wrap ftr__bottom">
+    <p>Демонстрационный проект. Каталог, цены и наличие — учебные данные; обложки нарисованы кодом и не воспроизводят издательский арт.</p>
+    <p><a href="docs/research.md">Исследование аудитории и конкурентов →</a></p>
+  </div>
+</footer>
+
+<!-- Корзина -->
+<aside class="drawer" id="cart" aria-hidden="true" aria-label="Корзина">
+  <div class="drawer__head">
+    <h3>Корзина</h3>
+    <button class="close" id="cartClose" aria-label="Закрыть корзину">×</button>
+  </div>
+  <div class="ship-bar" id="shipBar"></div>
+  <div class="drawer__body" id="cartBody"></div>
+  <div class="drawer__foot" id="cartFoot"></div>
+</aside>
+
+<!-- Полка (избранное) -->
+<aside class="drawer" id="shelf" aria-hidden="true" aria-label="Моя полка">
+  <div class="drawer__head">
+    <h3>Моя полка</h3>
+    <button class="close" id="shelfClose" aria-label="Закрыть полку">×</button>
+  </div>
+  <div class="drawer__body" id="shelfBody"></div>
+  <div class="drawer__foot" id="shelfFoot"></div>
+</aside>
+
+<div class="scrim" id="scrim" hidden></div>
+
+<!-- Карточка товара -->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-label="Карточка пластинки">
+  <div class="modal__box" id="modalBox"></div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/covers.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
